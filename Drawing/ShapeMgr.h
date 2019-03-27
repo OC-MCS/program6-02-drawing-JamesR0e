@@ -11,6 +11,7 @@ using namespace sf;
 class ShapeMgr
 {
 private:
+	vector<*DrawingShape> drwptr;
 	
 public:
 	ShapeMgr()

@@ -30,6 +30,7 @@ int main()
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
 
+
 	while (window.isOpen()) 
 	{
 		Event event;
@@ -70,6 +71,7 @@ int main()
 		// shapes. This is passed the shapeMgr so that the drawingUI can get the shapes
 		// in order to draw them. This redraws *all* of the shapes every frame.
 		drawingUI.draw(window, &shapeMgr);
+
 
 		window.display();
 	} // end body of animation loop

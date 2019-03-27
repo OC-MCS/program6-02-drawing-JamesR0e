@@ -10,7 +10,7 @@ using namespace sf;
 class DrawingUI
 {
 private:
-
+	RectangleShape r;
 public:
 	DrawingUI(Vector2f p)
 	{
@@ -18,11 +18,23 @@ public:
 
 	void draw(RenderWindow& win, ShapeMgr *mgr)
 	{
+		Vector2f pos(150, 25);
+		r.setPosition(pos);
+		r.setOutlineThickness(4);
+		r.setOutlineColor(Color::White);
+		r.setSize(Vector2f(600, 550));
+		r.setFillColor(Color::Transparent);
+		win.draw(r);
 	}
 	
 	bool isMouseInCanvas(Vector2f mousePos)
 	{
-		return false; // just to make it compile
+		bool valid = true;
+		if (!r.getGlobalBounds().contains(mousePos))
+		{
+			valid = false;
+		}
+		return valid;
 	}
 
 };
