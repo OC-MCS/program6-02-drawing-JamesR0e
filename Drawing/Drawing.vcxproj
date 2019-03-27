@@ -153,6 +153,7 @@
     <ClCompile Include="SettingsMgr.cpp" />
     <ClCompile Include="SettingsUI.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawingUI.h" />

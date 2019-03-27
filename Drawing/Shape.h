@@ -16,7 +16,7 @@ struct shapedata
 class DrawingShape 
 {
 public:
-	virtual void draw() = 0;
+	virtual void draw(RenderWindow & win) = 0;
 	virtual shapedata getFileRecord() = 0;
 };
 
@@ -28,7 +28,7 @@ private:
 	CircleShape c;
 public:
 	Circle(Color color, Vector2f position);
-	void draw(RenderWindow win);
+	void draw(RenderWindow & win);
 	shapedata getFileRecord();
 };
 
@@ -38,7 +38,7 @@ private:
 	RectangleShape s;
 public:
 	Square(Color color, Vector2f position);
-	void draw(RenderWindow win);
+	void draw(RenderWindow & win);
 	shapedata getFileRecord();
 	
 };

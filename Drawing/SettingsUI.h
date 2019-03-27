@@ -11,7 +11,7 @@ class SettingsUI
 {
 private:
 	SettingsMgr * ptr;
-	CircleShape bluebtn; //change these to wrapper classes
+	CircleShape bluebtn;
 	CircleShape greenbtn;
 	CircleShape redbtn;
 	CircleShape circlebtn;

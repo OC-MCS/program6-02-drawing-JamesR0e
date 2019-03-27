@@ -25,6 +25,14 @@ public:
 		r.setSize(Vector2f(600, 550));
 		r.setFillColor(Color::Transparent);
 		win.draw(r);
+
+		vector<DrawingShape*> ptr;
+		ptr = mgr->getvector();
+		for (int i = 0; i < ptr.size(); i++)
+		{
+			ptr[i]->draw(win);
+		}
+
 	}
 	
 	bool isMouseInCanvas(Vector2f mousePos)

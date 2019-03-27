@@ -11,17 +11,30 @@ using namespace sf;
 class ShapeMgr
 {
 private:
-	vector<*DrawingShape> drwptr;
+	vector<DrawingShape*> drwptr;
 	
 public:
 	ShapeMgr()
 	{
-		
+		drwptr = {};
 	}
 
 	void addShape(Vector2f pos, ShapeEnum whichShape, Color color)
 	{
+		if (whichShape == CIRCLE)
+		{
+			drwptr.push_back(new Circle(color, pos));
+		}
+		else if (whichShape == SQUARE)
+		{
+			drwptr.push_back(new Square(color, pos));
+		}
 
+	}
+
+	vector<DrawingShape*> getvector()
+	{
+		return drwptr;
 	}
 
 };
