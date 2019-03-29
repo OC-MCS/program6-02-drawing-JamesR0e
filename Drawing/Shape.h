@@ -6,17 +6,16 @@
 using namespace std;
 using namespace sf;
 
-// finish this code; add functions, classes, data as needed
 
-
-// DrawingShape should be an abstract base class 
-// for Circle and Square
+//struct used for writing data to and from binary file
 struct shapedata
 {
 	ShapeEnum shape;
 	int color;
 	Vector2f position;
 };
+
+//abstract base class for shapes
 class DrawingShape 
 {
 public:
@@ -24,8 +23,7 @@ public:
 	virtual shapedata getFileRecord() = 0;
 };
 
-// add Circle, Square classes below. These are derived from DrawingShape
-
+//class circle is derived from DrawingShape
 class Circle : public DrawingShape
 {
 private:
@@ -36,6 +34,7 @@ public:
 	shapedata getFileRecord();
 };
 
+//class square is derived from DrawingShape
 class Square : public DrawingShape
 {
 private:

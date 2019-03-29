@@ -1,6 +1,9 @@
-//================================================
-// James Roe <-----------------  
-//================================================
+//=====================================================
+// James Roe
+// 3/29/19
+// Programming Assignment #6
+// Description: painting program
+//=====================================================
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -11,9 +14,7 @@ using namespace std;
 #include "DrawingUI.h"
 using namespace sf;
 
-// Finish this code. Other than where it has comments telling you to 
-// add code, you shouldn't need to add any logic to main to satisfy
-// the requirements of this programming assignment
+//main handles the animation loop and use of classes, also handles event logic
 
 int main()
 {
@@ -26,9 +27,9 @@ int main()
 	SettingsMgr settingsMgr(Color::Blue, ShapeEnum::CIRCLE);
 	SettingsUI  settingsUI(&settingsMgr); 
 	ShapeMgr    shapeMgr;
-	DrawingUI   drawingUI(Vector2f(200, 50));
+	DrawingUI   drawingUI(Vector2f(150, 25));
 	
-	// ********* Add code here to make the managers read from shapes file (if the file exists)
+	//reads the settings and the shapes from the binary file
 	fstream file;
 	file.open("shapes.bin", ios::in | ios::binary);
 	if (file)
@@ -50,7 +51,7 @@ int main()
 			if (event.type == Event::Closed)
 			{
 				window.close();
-				// ****** Add code here to write all data to shapes file
+			//writes shapes and settings to the file
 				file.open("shapes.bin", ios::out | ios::binary);
 				settingsMgr.write(file);
 				shapeMgr.write(file);
@@ -58,8 +59,7 @@ int main()
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
-				// maybe they just clicked on one of the settings "buttons"
-				// check for this and handle it.
+				//userinput for settings
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
 				settingsUI.handleMouseUp(mousePos);
 			}

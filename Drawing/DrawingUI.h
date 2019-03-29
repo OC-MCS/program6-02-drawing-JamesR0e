@@ -5,29 +5,39 @@ using namespace std;
 using namespace sf;
 #include "ShapeMgr.h"
 
-// finish this code; add functions, data as needed
 
+//class drawing UI draws the shapes and the canvas to the frame; also determines if mouse in on canvas
 class DrawingUI
 {
 private:
 	RectangleShape r;
 public:
+
+//====================================================== 
+// constructor: sets the position of the canvas
+// parameters: position of canvas (Vector2f)
+// return type: n/a
+//======================================================
 	DrawingUI(Vector2f p)
 	{
-		p.x = 0;
-		p.y = 0;
+		r.setPosition(p);
 	}
 
+//====================================================== 
+// draw: draws the canvas and all the shapes on it each frame
+// parameters:  window and ptr to the shapesMgr
+// return type: n/a
+//======================================================
 	void draw(RenderWindow& win, ShapeMgr *mgr)
 	{
-		Vector2f pos(150, 25);
-		r.setPosition(pos);
+		//canvas
 		r.setOutlineThickness(4);
 		r.setOutlineColor(Color::White);
 		r.setSize(Vector2f(615, 550));
 		r.setFillColor(Color::Transparent);
 		win.draw(r);
 
+		//drawingshapes
 		vector<DrawingShape*> ptr;
 		ptr = mgr->getvector();
 		for (int i = 0; i < ptr.size(); i++)
@@ -37,6 +47,11 @@ public:
 
 	}
 	
+//====================================================== 
+// isMouseInCanvas: determines if the mouse is on the canvas
+// parameters:  mouse position
+// return type: returns a bool
+//======================================================
 	bool isMouseInCanvas(Vector2f mousePos)
 	{
 		bool valid = true;
