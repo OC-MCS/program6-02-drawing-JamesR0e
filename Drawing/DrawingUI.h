@@ -14,6 +14,8 @@ private:
 public:
 	DrawingUI(Vector2f p)
 	{
+		p.x = 0;
+		p.y = 0;
 	}
 
 	void draw(RenderWindow& win, ShapeMgr *mgr)
@@ -22,7 +24,7 @@ public:
 		r.setPosition(pos);
 		r.setOutlineThickness(4);
 		r.setOutlineColor(Color::White);
-		r.setSize(Vector2f(600, 550));
+		r.setSize(Vector2f(615, 550));
 		r.setFillColor(Color::Transparent);
 		win.draw(r);
 

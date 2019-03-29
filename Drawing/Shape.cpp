@@ -14,8 +14,9 @@ void Circle::draw(RenderWindow & win)
 shapedata Circle::getFileRecord()
 {
 	shapedata circle;
-	circle.color = c.getFillColor();
+	circle.color = c.getFillColor().toInteger();
 	circle.position = c.getPosition();
+	circle.shape = CIRCLE;
 	return circle;
 }
 
@@ -32,7 +33,8 @@ void Square::draw(RenderWindow & win)
 shapedata Square::getFileRecord()
 {
 	shapedata square;
-	square.color = s.getFillColor();
+	square.color = s.getFillColor().toInteger();
 	square.position = s.getPosition();
+	square.shape = SQUARE;
 	return square;
 }

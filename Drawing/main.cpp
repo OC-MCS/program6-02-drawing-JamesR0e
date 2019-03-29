@@ -1,5 +1,5 @@
 //================================================
-// YOUR NAME GOES HERE <-----------------  
+// James Roe <-----------------  
 //================================================
 #include <iostream>
 #include <fstream>
@@ -29,7 +29,18 @@ int main()
 	DrawingUI   drawingUI(Vector2f(200, 50));
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
-
+	fstream file;
+	file.open("shapes.bin", ios::in | ios::binary);
+	if (file)
+	{
+		settingsMgr.read(file);
+		shapeMgr.read(file);
+		file.close();
+	}
+	else
+	{
+		cout << "file empty" << endl;
+	}
 
 	while (window.isOpen()) 
 	{
@@ -40,6 +51,10 @@ int main()
 			{
 				window.close();
 				// ****** Add code here to write all data to shapes file
+				file.open("shapes.bin", ios::out | ios::binary);
+				settingsMgr.write(file);
+				shapeMgr.write(file);
+				file.close();
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{

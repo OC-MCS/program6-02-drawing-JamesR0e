@@ -31,6 +31,23 @@ public:
 		}
 
 	}
+	void read(fstream & file)
+	{
+		shapedata data;
+		while (file.read(reinterpret_cast<char *>(&data), sizeof(data)))
+		{
+			addShape(data.position, data.shape, Color(data.color));
+		}
+	}
+	void write(fstream & file)
+	{
+		shapedata data;
+		for (int i = 0; i < drwptr.size(); i++)
+		{
+			data = drwptr[i]->getFileRecord();
+			file.write(reinterpret_cast<char*>(&data), sizeof(data));
+		}
+	}
 
 	vector<DrawingShape*> getvector()
 	{

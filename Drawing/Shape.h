@@ -1,16 +1,20 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "SettingsMgr.h"
+
 using namespace std;
 using namespace sf;
 
 // finish this code; add functions, classes, data as needed
 
+
 // DrawingShape should be an abstract base class 
 // for Circle and Square
 struct shapedata
 {
-	Color color;
+	ShapeEnum shape;
+	int color;
 	Vector2f position;
 };
 class DrawingShape 
